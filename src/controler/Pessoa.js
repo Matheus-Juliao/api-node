@@ -6,7 +6,7 @@ export async function createTable() {
     })
 }
 
-export async function selectPessoas(req, res) {
+export async function selectPessoas(_req, res) {
     openDb().then(db => {
         db.all('SELECT * FROM Pessoa')
         .then(pessoas => res.json(pessoas))
@@ -48,7 +48,6 @@ export async function deletePessoa(req, res) {
 
     openDb().then(db => {
     db.get('DELETE FROM Pessoa WHERE id=?', [id])
-        .then(req => res)
     });
     res.json({
         "statusCode": 200

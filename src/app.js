@@ -5,6 +5,7 @@ import fs from 'fs';
 import https from 'https';
 import cors from 'cors';
 
+const port = process.env.PORT || 3000
 const app = express();
 
 app.use(express.json());
@@ -13,7 +14,7 @@ app.use(router);
 
 createTable();
 
-app.listen(3000, ()=>console.log("API rodando"));
+app.listen(port, ()=>console.log("API rodando"));
 
 https.createServer({
     cert: fs.readFileSync('src/SSL/code.crt'),
